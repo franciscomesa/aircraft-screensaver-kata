@@ -12,16 +12,24 @@ class Territory:
         self.min_latitude = 0
         self.flying_objects = []
 
+# TODO: BADSMELL: Guard clause missing.
+#                 At this moment we don't know if this is a good name.
     def register(self, flying_object: FlyingObject):
         self.flying_objects.append(flying_object)
         # Proposal: handle the case of registering a collision
 
+# TODO: Set type return value
     def at_northern_border(self, position: Position):
         return position.latitude == self.min_latitude
 
+# TODO: Set type return value
     def at_eastern_border(self, position: Position):
         return position.longitude == self.max_longitude
 
+# TODO: BADSMELL: Surprise! This method does not only update position of flying object
+#                 This method detects collisions and destroy flying_objects
+#                 The plural and singular names may generate mistakes
+#                 Rename variables
     def update_position(self, flying_object: FlyingObject):
         other_objects = [f for f in self.flying_objects if f != flying_object]
         for other_object in other_objects:

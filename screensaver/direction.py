@@ -1,6 +1,6 @@
 from enum import Enum
 
-
+# TODO:  Maybe this is facing?
 class Direction(Enum):
     North = 1
     South = 2

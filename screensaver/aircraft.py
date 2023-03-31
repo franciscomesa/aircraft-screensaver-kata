@@ -7,6 +7,7 @@ from screensaver.territory import Territory
 from screensaver.validation_error import ValidationError
 
 
+# TODO: BADSMELL: Territory as dependency
 class Aircraft(FlyingObject):
     def __init__(self, position: Position, territory: Territory, direction: Direction = Direction.North):
         self.position = position
@@ -15,13 +16,15 @@ class Aircraft(FlyingObject):
 
     def current_position(self) -> Position:
         return self.position.copy()
-
+    #TODO: Debería estar en la interfaz de FlyingObject?
     def move(self, direction: Direction = None) -> None:
         if direction is None:
             direction = self.direction
         else:
             self.direction = direction
         new_position: Position = self.position
+
+        #TODO: Debería estar en Territory?
         match direction:
             case direction.NorthEast:
                 if self.territory.at_northern_border(self.position):
@@ -53,6 +56,8 @@ class Aircraft(FlyingObject):
 
 
 def create(position: Position, territory: Territory, direction: Direction = None) -> Union[Aircraft, ValidationError]:
+    #TODO:  Missing a validation about negative values
+    #TODO: Responsability of Territory or Aircraft
     if position.longitude > territory.max_longitude or position.latitude > territory.max_latitude:
         return ValidationError("The position cant be out of the territory")
 

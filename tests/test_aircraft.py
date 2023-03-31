@@ -59,6 +59,7 @@ class TestAircraft(unittest.TestCase):
 
         assert_that(len(territory.get_flying_objects())).is_equal_to(2)
 
+    #TODO: Many responsabilities are tested
     def test_aircraft_explote_and_disappear_when_they_collide_with_another_aircraft(self):
         territory = Territory(max_longitude=6, max_latitude=6)
         aircraft.create(Position(longitude=3, latitude=1), territory)
