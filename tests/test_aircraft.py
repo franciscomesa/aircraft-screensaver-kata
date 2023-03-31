@@ -3,7 +3,7 @@ from assertpy import assert_that
 
 from screensaver import aircraft
 from screensaver.direction import Direction
-from screensaver.validation_error import ValidationError
+from screensaver.InvalidPositionError import InvalidPositionError
 from screensaver.position import Position
 from screensaver.territory import Territory
 
@@ -13,7 +13,7 @@ class TestAircraft(unittest.TestCase):
         an_aircraft = aircraft.create(
             Position(longitude=5000, latitude=5000), Territory(max_longitude=200, max_latitude=200))
 
-        assert_that(an_aircraft).is_instance_of(ValidationError)
+        assert_that(an_aircraft).is_instance_of(InvalidPositionError)
 
     def test_aircraft_changes_position_when_moving(self):
         an_aircraft = aircraft.create(
