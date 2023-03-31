@@ -1,5 +1,6 @@
 from enum import Enum
 
+# TODO: Return a t-uple with default changes at latitude/longitude
 # TODO:  Maybe this is facing?
 class Direction(Enum):
     North = 1
