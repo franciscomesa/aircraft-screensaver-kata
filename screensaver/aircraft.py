@@ -56,8 +56,7 @@ class Aircraft(FlyingObject):
 
 
 def create(position: Position, territory: Territory, direction: Direction = None) -> Union[Aircraft, InvalidPositionError]:
-    #TODO:  Missing a validation about negative values
-    #TODO: Responsability of Territory or Aircraft
+    #TODO: Do not use parameter if only is used here
     if position.longitude > territory.max_longitude or position.latitude > territory.max_latitude:
         return InvalidPositionError("The position cant be out of the territory")
 
