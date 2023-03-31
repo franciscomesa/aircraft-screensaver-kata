@@ -56,8 +56,10 @@ class Aircraft(FlyingObject):
 
 
 def create(position: Position, territory: Territory, direction: Direction = None) -> Union[Aircraft, InvalidPositionError]:
-    #TODO: Do not use parameter if only is used here
-    if position.longitude > territory.max_longitude or position.latitude > territory.max_latitude:
+    is_out_of_territory = position.longitude > territory.max_longitude \
+                          or position.latitude > territory.max_latitude
+    if is_out_of_territory:
+        #TODO: Do not use parameter if only is used here
         return InvalidPositionError("The position cant be out of the territory")
 
     aircraft = Aircraft(position, territory, direction)
