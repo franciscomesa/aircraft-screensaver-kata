@@ -16,7 +16,7 @@ class Aircraft(FlyingObject):
 
     def current_position(self) -> Position:
         return self.position.copy()
-    #TODO: Debería estar en la interfaz de FlyingObject?
+
     def move(self, direction: Direction = None) -> None:
         if direction is None:
             direction = self.direction
@@ -24,7 +24,7 @@ class Aircraft(FlyingObject):
             self.direction = direction
         new_position: Position = self.position
 
-        #TODO: Debería estar en Territory?
+        # TODO: Debería estar en Territory?
         match direction:
             case direction.NorthEast:
                 if self.territory.at_northern_border(self.position):
@@ -55,12 +55,12 @@ class Aircraft(FlyingObject):
         return self.position == flying_object.current_position()
 
 
-def create(position: Position, territory: Territory, direction: Direction = None) -> Union[Aircraft, InvalidPositionError]:
-    #TODO: Do not use parameter at error if only is used here
+def create(position: Position, territory: Territory, direction: Direction = None) -> Union[
+    Aircraft, InvalidPositionError]:
+    # TODO: Do not use parameter at error if only is used here
     if territory.is_out_of(position):
         return InvalidPositionError("The position cant be out of the territory")
 
     aircraft = Aircraft(position, territory, direction)
     territory.register(aircraft)
     return aircraft
-
