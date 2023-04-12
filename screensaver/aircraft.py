@@ -27,8 +27,6 @@ class Aircraft(FlyingObject):
         self.territory.detect_collisions(self)
 
     def calculate_new_position(self, direction):
-        new_position: Position = self.position
-        # TODO: Debería estar en Territory?
         diff_position = calculate_position_differential_from(direction)
         match direction:
             case direction.NorthEast:
