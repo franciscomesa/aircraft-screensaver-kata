@@ -36,22 +36,8 @@ class Aircraft(FlyingObject):
                     diff_position.latitude = 1
                 if self.territory.at_eastern_border(self.position):
                     diff_position.longitude = -1
-                new_position = Position.add(self.position, diff_position)
-            case direction.NorthWest:
-                # Proposal: develop bounces with TDD for all directions
-                new_position = Position(self.position.longitude - 1, self.position.latitude - 1)
-            case direction.SouthEast:
-                new_position = Position(self.position.longitude + 1, self.position.latitude + 1)
-            case direction.SouthWest:
-                new_position = Position(self.position.longitude - 1, self.position.latitude + 1)
-            case direction.North:
-                new_position = Position(self.position.longitude, self.position.latitude - 1)
-            case direction.South:
-                new_position = Position(self.position.longitude, self.position.latitude + 1)
-            case direction.East:
-                new_position = Position(self.position.longitude + 1, self.position.latitude)
-            case direction.West:
-                new_position = Position(self.position.longitude - 1, self.position.latitude)
+
+        new_position = Position.add(self.position, diff_position)
         return new_position
 
     def is_colliding_with(self, flying_object: FlyingObject) -> bool:
