@@ -31,15 +31,12 @@ class Aircraft(FlyingObject):
         # TODO: Debería estar en Territory?
         match direction:
             case direction.NorthEast:
-                diff_position = Position(1, -1) # Default NortEast move
+                diff_position = Position(1, -1)  # Default NortEast move
                 if self.territory.at_northern_border(self.position):
                     diff_position.latitude = 1
                 if self.territory.at_eastern_border(self.position):
                     diff_position.longitude = -1
-                new_position = Position(
-                    self.position.longitude + diff_position.longitude,
-                    self.position.latitude + diff_position.latitude
-                )
+                new_position = Position.add(self.position, diff_position)
             case direction.NorthWest:
                 # Proposal: develop bounces with TDD for all directions
                 new_position = Position(self.position.longitude - 1, self.position.latitude - 1)
