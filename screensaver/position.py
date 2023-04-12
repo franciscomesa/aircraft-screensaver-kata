@@ -4,7 +4,6 @@ class Position:
         self.longitude = longitude
         self.latitude = latitude
 
-# TODO: BADSMELLS Rename method?
     def copy(self):
         return Position(self.longitude, self.latitude)
 
