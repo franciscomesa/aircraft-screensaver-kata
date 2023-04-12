@@ -26,10 +26,10 @@ class Territory:
 
     def detect_collisions(self, flying_object: FlyingObject):
         other_objects = [f for f in self.flying_objects if f != flying_object]
-        for other_object in other_objects:
-            if flying_object.is_colliding_with(other_object):
+        for other_flying_object in other_objects:
+            if flying_object.is_colliding_with(other_flying_object):
                 self.flying_objects.remove(flying_object)
-                self.flying_objects.remove(other_object)
+                self.flying_objects.remove(other_flying_object)
 
     def get_flying_objects(self) -> List[FlyingObject]:
         return self.flying_objects.copy()
