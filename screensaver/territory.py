@@ -18,12 +18,10 @@ class Territory:
         self.flying_objects.append(flying_object)
         # Proposal: handle the case of registering a collision
 
-    # TODO: Set type return value
-    def at_northern_border(self, position: Position):
+    def at_northern_border(self, position: Position) -> bool:
         return position.latitude == self.min_latitude
 
-    # TODO: Set type return value
-    def at_eastern_border(self, position: Position):
+    def at_eastern_border(self, position: Position) -> bool:
         return position.longitude == self.max_longitude
 
     # TODO: BADSMELL: Surprise! This method does not only update position of flying object
