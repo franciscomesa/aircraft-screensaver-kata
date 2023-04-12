@@ -29,7 +29,7 @@ class Aircraft(FlyingObject):
     def calculate_new_position(self, direction):
         new_position: Position = self.position
         # TODO: Debería estar en Territory?
-        diff_position = self.calculate_position_differential_from(direction)
+        diff_position = calculate_position_differential_from(direction)
         match direction:
             case direction.NorthEast:
                 if self.territory.at_northern_border(self.position):
@@ -57,25 +57,6 @@ class Aircraft(FlyingObject):
     def is_colliding_with(self, flying_object: FlyingObject) -> bool:
         return self.position == flying_object.current_position()
 
-    def calculate_position_differential_from(self, direction: Direction) -> Position:
-        match direction:
-            case direction.NorthEast:
-                return Position(1, -1)  # Default NortEast move
-            case direction.NorthWest:
-                return Position(-1, -1)
-            case direction.SouthEast:
-                return Position(1, 1)
-            case direction.SouthWest:
-                return Position(-1, 1)
-            case direction.North:
-                return Position(0, -1)
-            case direction.South:
-                return Position(0, +1)
-            case direction.East:
-                return Position(1, 0)
-            case direction.West:
-                return Position(-1, 0)
-
 
 def create(position: Position, territory: Territory, direction: Direction = None) -> Union[
     Aircraft, InvalidPositionError]:
@@ -86,3 +67,23 @@ def create(position: Position, territory: Territory, direction: Direction = None
     aircraft = Aircraft(position, territory, direction)
     territory.register(aircraft)
     return aircraft
+
+
+def calculate_position_differential_from(direction) -> Position:
+    match direction:
+        case direction.NorthEast:
+            return Position(1, -1)  # Default NortEast move
+        case direction.NorthWest:
+            return Position(-1, -1)
+        case direction.SouthEast:
+            return Position(1, 1)
+        case direction.SouthWest:
+            return Position(-1, 1)
+        case direction.North:
+            return Position(0, -1)
+        case direction.South:
+            return Position(0, +1)
+        case direction.East:
+            return Position(1, 0)
+        case direction.West:
+            return Position(-1, 0)
