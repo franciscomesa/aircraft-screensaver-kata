@@ -24,11 +24,7 @@ class Territory:
     def at_eastern_border(self, position: Position) -> bool:
         return position.longitude == self.max_longitude
 
-    # TODO: BADSMELL: Surprise! This method does not only update position of flying object
-    #                 This method detects collisions and destroy flying_objects
-    #                 The plural and singular names may generate mistakes
-    #                 Rename variables
-    def update_position(self, flying_object: FlyingObject):
+    def detect_collisions(self, flying_object: FlyingObject):
         other_objects = [f for f in self.flying_objects if f != flying_object]
         for other_object in other_objects:
             if flying_object.is_colliding_with(other_object):

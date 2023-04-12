@@ -24,7 +24,7 @@ class Aircraft(FlyingObject):
             self.direction = direction
         new_position = self.calculate_new_position(direction)
         self.position = new_position
-        self.territory.update_position(self)
+        self.territory.detect_collisions(self)
 
     def calculate_new_position(self, direction):
         new_position: Position = self.position
