@@ -22,8 +22,12 @@ class Aircraft(FlyingObject):
             direction = self.direction
         else:
             self.direction = direction
-        new_position: Position = self.position
+        new_position = self.calculate_new_position(direction)
+        self.position = new_position
+        self.territory.update_position(self)
 
+    def calculate_new_position(self, direction):
+        new_position: Position = self.position
         # TODO: Debería estar en Territory?
         match direction:
             case direction.NorthEast:
@@ -48,8 +52,7 @@ class Aircraft(FlyingObject):
                 new_position = Position(self.position.longitude + 1, self.position.latitude)
             case direction.West:
                 new_position = Position(self.position.longitude - 1, self.position.latitude)
-        self.position = new_position
-        self.territory.update_position(self)
+        return new_position
 
     def is_colliding_with(self, flying_object: FlyingObject) -> bool:
         return self.position == flying_object.current_position()
