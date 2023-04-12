@@ -1,6 +1,6 @@
 # Aircraft screensaver kata
 
-This is an exercise to learn unit testing with Python. It is also a good exercise
+This is an exercise base on [aircraft-screensaver-kata](https://github.com/lean-mind/aircraft-screensaver-kata) to learn unit testing with Python. It is also a good exercise
 to learn about design principles and TDD.
 
 If you like this workshop, please visit our website and subscribe to our newsletter:
