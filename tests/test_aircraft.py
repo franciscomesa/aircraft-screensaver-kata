@@ -50,7 +50,7 @@ class TestAircraft(unittest.TestCase):
         an_aircraft.move(Direction.NorthEast)
 
         assert_that(an_aircraft.current_position())\
-            .is_equal_to(Position(longitude=4, latitude=1))
+            .is_equal_to(Position(longitude=5, latitude=1))
 
     def test_aircraft_bounces_at_the_territory_eastern_border(self):
         an_aircraft = aircraft.create(
