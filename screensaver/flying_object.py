@@ -4,7 +4,6 @@ from screensaver.direction import Direction
 from screensaver.position import Position
 
 
-# TODO: BADSMELLS May be rename it to Flyable?
 class FlyingObject(ABC):
     @abstractmethod
     def current_position(self) -> Position:
