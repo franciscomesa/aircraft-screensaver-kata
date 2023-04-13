@@ -53,6 +53,7 @@ def create(position: Position, territory: Territory, direction: Direction = None
     return aircraft
 
 
+# TODO: Position + Direction = Movement?
 def calculate_position_differential_from(direction) -> Position:
     match direction:
         case direction.NorthEast:
