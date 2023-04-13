@@ -20,6 +20,7 @@ class Aircraft(FlyingObject):
             direction = self.direction
         else:
             self.direction = direction
+        # TODO If aircraft bounce, change direction
         new_position = self.calculate_new_position(direction)
         self.position = new_position
         self.territory.detect_collisions(self)
