@@ -28,6 +28,7 @@ class Aircraft(FlyingObject):
 
     def calculate_new_position(self, direction):
         diff_position = calculate_position_differential_from(direction)
+        # TODO Refactor this
         match direction:
             case direction.NorthEast:
                 if self.territory.at_northern_border(self.position):
