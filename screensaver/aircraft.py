@@ -6,8 +6,6 @@ from screensaver.position import Position
 from screensaver.territory import Territory
 from screensaver.InvalidPositionError import InvalidPositionError
 
-
-# TODO: BADSMELL: Territory as dependency
 class Aircraft(FlyingObject):
     def __init__(self, position: Position, territory: Territory, direction: Direction = Direction.North):
         self.position = position
