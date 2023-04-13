@@ -44,7 +44,6 @@ class Aircraft(FlyingObject):
                 if self.territory.at_western_border(self.position):
                     diff_position.longitude = 1
 
-
         new_position = Position.add(self.position, diff_position)
         return new_position
 
