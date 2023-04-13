@@ -56,5 +56,5 @@ while True:
         )
         pygame.draw.rect(screen, object_color, rect)
     pygame.display.update()
-    print(len(territory.get_flying_objects()))
+    pygame.display.set_caption("Screensaver with " + str(len(territory.get_flying_objects())) + " aircrafts")
     pygame.time.wait(100)
