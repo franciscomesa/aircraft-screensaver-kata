@@ -39,3 +39,6 @@ class Territory:
                 position.latitude > self.max_latitude or
                 position.longitude < self.min_longitude or
                 position.latitude < self.min_latitude)
+
+    def at_western_border(self, position):
+        return position.longitude == self.min_longitude
