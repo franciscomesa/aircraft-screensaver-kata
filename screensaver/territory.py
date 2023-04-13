@@ -21,6 +21,9 @@ class Territory:
     def at_northern_border(self, position: Position) -> bool:
         return position.latitude == self.min_latitude
 
+    def at_southern_border(self, position):
+        return position.latitude == self.max_latitude
+
     def at_eastern_border(self, position: Position) -> bool:
         return position.longitude == self.max_longitude
 
@@ -42,3 +45,4 @@ class Territory:
 
     def at_western_border(self, position):
         return position.longitude == self.min_longitude
+
