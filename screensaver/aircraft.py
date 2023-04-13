@@ -39,6 +39,11 @@ class Aircraft(FlyingObject):
                     diff_position.latitude = 1
                 if self.territory.at_western_border(self.position):
                     diff_position.longitude = 1
+            case direction.SouthEast:
+                if self.territory.at_southern_border(self.position):
+                    diff_position.latitude = -1
+                if self.territory.at_eastern_border(self.position):
+                    diff_position.longitude = -1
             case direction.SouthWest:
                 if self.territory.at_southern_border(self.position):
                     diff_position.latitude = -1
