@@ -50,8 +50,8 @@ while True and len(territory.get_flying_objects()) > 0:
     for aircraft in territory.get_flying_objects():
         aircraft.move()
         rect = Rect(
-            aircraft.position.longitude * aircraft_size,
-            aircraft.position.latitude * aircraft_size,
+            aircraft.current_position().longitude * aircraft_size,
+            aircraft.current_position().latitude * aircraft_size,
             aircraft_size,
             aircraft_size
         )
