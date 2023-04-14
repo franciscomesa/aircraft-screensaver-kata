@@ -41,7 +41,7 @@ for i in range(10):
     territory.register(random_aircraft)
 
 # Move the objects
-while True:
+while True and len(territory.get_flying_objects()) > 0:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
