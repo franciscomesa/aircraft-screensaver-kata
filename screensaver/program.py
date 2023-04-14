@@ -1,6 +1,7 @@
 import random
 import sys
 
+# Skeleton by chatGPT
 import pygame
 from pygame import Rect
 
